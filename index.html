@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Game Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+        .meta {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-live { background: #22c55e; color: #064e3b; }
+        .status-archive { background: #f59e0b; color: #78350f; }
+        
+        .section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+        }
+        .section h2 {
+            color: #60a5fa;
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        th {
+            color: #94a3b8;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        td {
+            font-size: 0.95rem;
+        }
+        .metric-value {
+            font-weight: 600;
+            color: #60a5fa;
+        }
+        .change-positive { color: #22c55e; }
+        .change-negative { color: #ef4444; }
+        .change-neutral { color: #94a3b8; }
+        
+        .alert-box {
+            background: #451a1a;
+            border-left: 4px solid #ef4444;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 12px 0;
+        }
+        .alert-box.warning {
+            background: #451a03;
+            border-left-color: #f59e0b;
+        }
+        .alert-box.success {
+            background: #064e3b;
+            border-left-color: #22c55e;
+        }
+        
+        .action-item {
+            background: #1e293b;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 8px 0;
+            border-left: 3px solid #60a5fa;
+        }
+        .action-item.urgent {
+            border-left-color: #ef4444;
+        }
+        .action-item.high {
+            border-left-color: #f59e0b;
+        }
+        
+        .chart-container {
+            text-align: center;
+            padding: 20px;
+            background: #0f172a;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        .chart-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .comments-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #334155;
+        }
+        .comments-section h2 {
+            color: #a78bfa;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.875rem;
+            border-top: 1px solid #334155;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 640px) {
+            body { padding: 12px; }
+            h1 { font-size: 1.5rem; }
+            .section { padding: 16px; }
+            th, td { padding: 8px; font-size: 0.875rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="status-badge status-live">● Live</span>
+            <h1>📊 Daily Game Report</h1>
+            <p class="meta">Generated: <span id="timestamp">2026-03-05 22:53:20</span> | Data: 2026-03-04</p>
+        </header>
+
+        <div class="section">
+            <h2>📈 Executive Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>WoW Change</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Active Users (A1)</td>
+                        <td class="metric-value">83,034</td>
+                        <td class="change-neutral">-1.6%</td>
+                        <td>⚪ Normal</td>
+                    </tr>
+                    <tr>
+                        <td>Revenue</td>
+                        <td class="metric-value">$3,454</td>
+                        <td class="change-neutral">+0.8%</td>
+                        <td>⚪ Normal</td>
+                    </tr>
+                    <tr>
+                        <td>Conversion (PR1)</td>
+                        <td class="metric-value">0.65%</td>
+                        <td class="change-neutral">+0.0%</td>
+                        <td>⚪ Normal</td>
+                    </tr>
+                    <tr>
+                        <td>Paying Users (P1)</td>
+                        <td class="metric-value">542</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>⚠️ Alerts & Insights</h2>
+            <div class="alert-box">⚠️ <strong>Low Buyback Rate:</strong> Bankrupt → Pay conversion is critically low ({buyback:.2f}%). Review bankruptcy flow.</div>
+<div class="alert-box warning">⚠️ <strong>High PSHT:</strong> Forced purchase pressure detected ({PSHT:.1f}%). Consider increasing support gold.</div>
+        </div>
+
+        <div class="section">
+            <h2>💰 Revenue Breakdown</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Amount</th>
+                        <th>% of Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>First-time Payers (FPU)</td>
+                        <td>$518</td>
+                        <td>15.0%</td>
+                    </tr>
+                    <tr>
+                        <td>Returning Payers (OPU)</td>
+                        <td>$2,936</td>
+                        <td>85.0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>👥 User Behavior</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Insight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Play Rate</td>
+                        <td class="metric-value">93.1%</td>
+                        <td>% users playing at least 1 hand</td>
+                    </tr>
+                    <tr>
+                        <td>Bankrupt Rate</td>
+                        <td class="metric-value">87.8%</td>
+                        <td>Players hitting low gold</td>
+                    </tr>
+                    <tr>
+                        <td>Buyback Rate</td>
+                        <td class="metric-value">0.76%</td>
+                        <td>Bankrupt → Pay conversion</td>
+                    </tr>
+                    <tr>
+                        <td>PSHT</td>
+                        <td class="metric-value">74.8%</td>
+                        <td>Forced purchase pressure</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>📉 Trends</h2>
+            <div class="chart-container">
+                <img src="daily_chart.png" alt="Daily Trends Chart" onerror="this.style.display='none'">
+                <p style="color: #64748b; font-size: 0.875rem;">Chart: Revenue & User Trends (14 days)</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Action Items</h2>
+            <div class="action-item urgent"><strong>[URGENT]</strong> Review bankruptcy flow — buyback rate critically low</div>
+<div class="action-item high"><strong>[HIGH]</strong> PSHT indicates forced purchase pressure — adjust support gold</div>
+        </div>
+
+        <div class="comments-section">
+            <h2>💬 Discussion</h2>
+            <p style="color: #64748b; margin-bottom: 16px;">Share your thoughts, questions, or ideas for improvement below:</p>
+            
+            <!-- Utterances Comments -->
+            <script src="https://utteranc.es/client.js"
+                repo="{{github_username}}/{{github_repo}}"
+                issue-term="title"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+
+        <footer>
+            <p>Generated by Bim 🤖 | Game Data Analyst</p>
+            <p style="margin-top: 8px; font-size: 0.75rem;">This report is overwritten daily. Last updated: <span id="footer-time">2026-03-05 22:53:20</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // Auto-refresh every 5 minutes during daytime (7AM - 8PM)
+        const hour = new Date().getHours();
+        if (hour >= 7 && hour <= 20) {
+            setTimeout(() => location.reload(), 300000);
+        }
+        
+        // Update timestamps
+        document.getElementById('timestamp').textContent = new Date().toLocaleString('vi-VN');
+        document.getElementById('footer-time').textContent = new Date().toLocaleString('vi-VN');
+    </script>
+</body>
+</html>
